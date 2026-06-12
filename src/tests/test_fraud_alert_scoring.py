@@ -34,7 +34,7 @@ class FraudAlertScoringTests(unittest.TestCase):
             transfer_type="wire transfer",
             is_new_device=True,
         )
-        self.assertEqual(score, calculate_fraud_alert_score(25_000, "wire transfer", True))
+        self.assertEqual(score, 100)
 
 
 if __name__ == "__main__":
