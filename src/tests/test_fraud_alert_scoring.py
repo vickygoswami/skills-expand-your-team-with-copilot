@@ -1,6 +1,6 @@
 import unittest
 
-from src.backend.fraud_alert_scoring import calculate_fraud_alert_score
+from src.backend.fraud_alert_scoring import calculate_fraud_alert_score, score_fraud_alert
 
 
 class FraudAlertScoringTests(unittest.TestCase):
@@ -27,6 +27,14 @@ class FraudAlertScoringTests(unittest.TestCase):
             is_new_device=True,
         )
         self.assertEqual(score, 25)
+
+    def test_score_fraud_alert_alias_matches_main_function(self):
+        score = score_fraud_alert(
+            amount=25_000,
+            transfer_type="wire transfer",
+            is_new_device=True,
+        )
+        self.assertEqual(score, calculate_fraud_alert_score(25_000, "wire transfer", True))
 
 
 if __name__ == "__main__":
