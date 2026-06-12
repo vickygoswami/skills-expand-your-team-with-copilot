@@ -36,6 +36,19 @@ class FraudAlertScoringTests(unittest.TestCase):
         )
         self.assertEqual(score, 100)
 
+    def test_combined_new_device_bonus_changes_high_value_wire_score(self):
+        known_device_score = calculate_fraud_alert_score(
+            amount=25_000,
+            transfer_type="wire transfer",
+            is_new_device=False,
+        )
+        new_device_score = calculate_fraud_alert_score(
+            amount=25_000,
+            transfer_type="wire transfer",
+            is_new_device=True,
+        )
+        self.assertEqual(new_device_score - known_device_score, 35)
+
 
 if __name__ == "__main__":
     unittest.main()
