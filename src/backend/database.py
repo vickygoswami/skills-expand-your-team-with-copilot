@@ -174,6 +174,17 @@ initial_activities = {
         },
         "max_participants": 15,
         "participants": []
+    },
+    "Manga Maniacs 2": {
+        "description": "Explore the fantastic stories of the most interesting characters from Japanese Manga (graphic novels).",
+        "schedule": "Tuesdays, 7:00 PM",
+        "schedule_details": {
+            "days": ["Tuesday"],
+            "start_time": "19:00",
+            "end_time": "20:00"
+        },
+        "max_participants": 15,
+        "participants": []
     }
 }
 
